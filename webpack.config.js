@@ -67,6 +67,9 @@ module.exports = {
 			}
 		]
 	},
-	watch: true
+	watch: true,
+	devServer: {
+		port:9001
+	}
 
 };

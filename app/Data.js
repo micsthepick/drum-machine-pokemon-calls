@@ -13,6 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+/*
+	last modified on 2021-07-08
+	by Michael Pannekoek (micsthepick):
+	change tempo and soundLength
+*/ 
 
 require("../style/loader.scss");
 
@@ -40,10 +45,10 @@ var Data = module.exports = {
 	suggestionEmptyList: [],
 	tsne: null,
 	rTree: null,
-	tempo: 120,
+	tempo: 20,
 	cloudData: [],
 	soundOffset: 0*0.001,
-	soundLength: 0.25,
+	soundLength: 2,
 	soundReleaseTime: 0.1,
 	cloudSize2D: 1.5,
 	totalTracks: 4,

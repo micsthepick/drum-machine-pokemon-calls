@@ -14,7 +14,9 @@ import librosa
 import numpy
 from multiprocessing import Pool
 
-sample_rate = 44100
+# modified 2021-07-08 by Michael Pannekoek
+# changed reference sounds to a randomly selected pokemon from each generation 1 - 6.
+sample_rate = 48000
 
     
 def scale(arr):
@@ -34,18 +36,22 @@ def analyse(file):
     return numpy.asarray([centroid, bandwidth])
 
 
-kick_values = analyse("./ref_sounds/Kick.mp3")
-snare_values = analyse("./ref_sounds/Snare.mp3")
-hihat_values = analyse("./ref_sounds/Hihat.mp3")
-open_values = analyse("./ref_sounds/Open.mp3")
+gen1_values = analyse("./ref_sounds/G1.ogg")
+gen2_values = analyse("./ref_sounds/G2.ogg")
+gen3_values = analyse("./ref_sounds/G3.ogg")
+gen4_values = analyse("./ref_sounds/G4.ogg")
+gen5_values = analyse("./ref_sounds/G5.ogg")
+gen6_values = analyse("./ref_sounds/G6.ogg")
 
 def get_distance(test_values):
     test_values = numpy.asarray(test_values)
-    kick_dist = numpy.linalg.norm(test_values - kick_values)
-    snare_dist = numpy.linalg.norm(test_values - snare_values)
-    hihat_dist = numpy.linalg.norm(test_values - hihat_values)
-    open_dist = numpy.linalg.norm(test_values - open_values)
-    return [kick_dist, snare_dist, hihat_dist, open_dist]
+    gen1_dist = numpy.linalg.norm(test_values - gen1_values)
+    gen2_dist = numpy.linalg.norm(test_values - gen2_values)
+    gen3_dist = numpy.linalg.norm(test_values - gen3_values)
+    gen4_dist = numpy.linalg.norm(test_values - gen4_values)
+    gen5_dist = numpy.linalg.norm(test_values - gen5_values)
+    gen6_dist = numpy.linalg.norm(test_values - gen6_values)
+    return [gen1_dist, gen2_dist, gen3_dist, gen4_dist, gen5_dist, gen6_dist]
 
 # print get_distance(snare_values)
 

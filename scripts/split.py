@@ -16,21 +16,24 @@ import os
 import numpy
 import math
 import re
-from AudioNotebooks import config
+
+# modified 2021-07-08 by Michael Pannekoek
+# general tweaks to get it working
+# including the generation of just one chunk
 
 sounds = AudioSegment.from_wav("data/spritesheet.wav")
 
 with open('data/filenames.txt') as file_name_file:    
     file_names = file_name_file.read().split("\n")[:-1]
 
-seg_time = config.chunk_ms
+seg_time = 65456
 
 num_samples = len(file_names)
 num_of_top_tags = 50
 
 
-num_chunks = config.chunks
-min_split_size = 150
+num_chunks = 1
+min_split_size = 771
 
 print(num_samples)
 
@@ -91,10 +94,10 @@ def combine_json(data_file_names, data_tags, data_coords, data_colors, data_anal
     }
 
 # the coordinates
-with open('data/tsne/fingerprints.32.64.2d.tsv') as data_file:    
+with open('data/tsne/fingerprints.30.30.2d.tsv') as data_file:    
     coords = data_file.read().split("\n")
 
-with open('data/tsne/fingerprints.32.64.3d.tsv') as data_file:    
+with open('data/tsne/fingerprints.30.30.3d.tsv') as data_file:    
     colors = data_file.read().split("\n")
 
 with open('data/analysis.tsv') as data_file:    
@@ -123,11 +126,12 @@ for s in range(0, len(distribution)):
 
     outString = combine_json(name, tag, coord, color, analysis)
 
-    with open("output/meta/" + str(s) + ".json", 'w+') as outfile:
+    with open("output/meta/" + str(s) + ".json", 'w') as outfile:
         json.dump(outString, outfile)
 
     # the audio file
     seg = sounds[seg_start * seg_time : (seg_start + distribution[s]) * seg_time ]
+    print(len(seg))
     seg.export("output/audio/" + str(s) + ".mp3", format="mp3")
 
     seg_start += distribution[s]

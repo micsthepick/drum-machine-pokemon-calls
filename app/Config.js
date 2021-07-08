@@ -13,6 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+/*
+	last modified on 2021-07-08
+	by Michael Pannekoek (micsthepick):
+	change maxChunks (disable chunks entirely because they are too buggy)
+*/ 
 
 var Config = module.exports = {
 	isStatsEnabled: false,
@@ -20,8 +25,8 @@ var Config = module.exports = {
 	isAudioDisabled: false,
 	isResizeDisabled: false,
 	isSplashDisabled: false,
-	maxChunks: 50,
-	maxChunksMobile: 25,
+	maxChunks: 1,
+	maxChunksMobile: 1,
 	domain: "./", 	
 	paths: {
 		tsne: "meta/",

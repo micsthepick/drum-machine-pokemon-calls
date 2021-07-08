@@ -13,6 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+/*
+	last modified on 2021-07-08
+	by Michael Pannekoek (micsthepick):
+	change tempo slider, remove youtube functionality
+*/ 
 
 var Data = require("./Data");
 var Config = require("./Config");
@@ -116,40 +121,6 @@ var Drums = module.exports = function(x) {
 	// ------------------------------------------------------------
 	// EVENTS
 	// ------------------------------------------------------------
-	this.loadVideo = function(event) {
-		var playerContainer = document.getElementById("drumsVideo");
-		var playButton = document.getElementsByClassName("playButton")[0];
-		var thumbnail = document.getElementById("thumbnail");
-		var ytPlayer = null;
-
-		var onPlayerReady = function(event) {
-			playerContainer.style.display = "none";
-			playButton.addEventListener("click", function(event) {
-				playerContainer.style.display = "block";
-				ytPlayer.playVideo();
-				playButton.style.display = "none";
-				thumbnail.style.display = "none";
-			},false);
-			var about = document.getElementById("about");
-			about.addEventListener("click", function(event) {
-				ytPlayer.pauseVideo();
-			},false);
-		};
-		
-		ytPlayer = new YT.Player('drumsVideo', {
-			width: '100%',
-			height: '100%',
-			videoId: Data.videoId,  // youtube video id
-			playerVars: {
-				'autoplay': 0,
-				'rel': 0,
-				'showinfo': 0
-			},
-			events: {
-				'onReady': onPlayerReady
-			}
-		});
-	};
 
 	this.loadDrums = function(event) {
 		var aboutLink = document.getElementById("aboutLink");
@@ -188,7 +159,6 @@ var Drums = module.exports = function(x) {
 			}
 		}.bind(scope),false);
 
-		this.loadVideo();
 		Data.randomizeSoundIndexes();
 
 		// ------------------------------------------------------------
@@ -237,9 +207,9 @@ var Drums = module.exports = function(x) {
 
 		nav.addEventListener("ON_TEMPO_UPDATED",function(normal){
 			if(sequencer) {
-				var increments = (200-60)/20; //get inc
+				var increments = (60-20)/5; //get inc
 				var steppedNormal = (normal*increments | 0) / increments; // force steps
-				var value = (200-60)*steppedNormal + 60;
+				var value = (60-20)*steppedNormal + 20;
 				sequencer.setTempo(value);
 			}
 		}.bind(scope),false);
