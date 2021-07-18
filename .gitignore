@@ -42,7 +42,6 @@ build/Release
 static/build/
 
 # the following lines added by Michael Pannekoek (micsthepick) on 2021-07-08:
-build/
 scripts/data
 scripts/output
 scripts/pokemonNames.py
