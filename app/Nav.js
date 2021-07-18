@@ -246,7 +246,7 @@ var Nav = module.exports = function() {
 		var params3 = "";
 
 		if(tag==="FILTER"){
-			params1 += "background: url(/img/search.svg) no-repeat scroll 0px 0px; ";
+			params1 += "background: url(img/search.svg) no-repeat scroll 0px 0px; ";
 			params1 += "background-position: left center; "; 
 			params1 += "background-color: #262536; ";
 			scope.filterStroke.setAttribute("style", params1);

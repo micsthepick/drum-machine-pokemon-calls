@@ -105,12 +105,12 @@ body {
 	transform: translateX(-50%) translateY(-50%);
 	height: 60px;
 	width: 60px;
-	background: url(/img/play.svg);
+	background: url(../img/play.svg);
 	cursor: pointer;
 	pointer-events: auto;
 }
 #controller > .nav > .player > .icon.pause {
-	background: url(/img/pause.svg);
+	background: url(../img/pause.svg);
 }
 
 #controller > .nav > .sequencer {
@@ -167,7 +167,7 @@ body {
 	top:2px;
 	width:calc(40px);
 	height:calc(100% - 4px);
-	background: url(/img/filter_clear_small.svg) no-repeat scroll 0px 0px;
+	background: url(../img/filter_clear_small.svg) no-repeat scroll 0px 0px;
 	background-position: right center;
 
 	cursor: pointer;
@@ -198,19 +198,19 @@ body {
 	background-color:$mediumColor;
 }
 #controller > .nav > .buttonsControls > .buttons > #shuffleIcon{
-	background: url(/img/shuffle.svg);
+	background: url(../img/shuffle.svg);
 	background-size: 34px 34px;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 #controller > .nav > .buttonsControls > .buttons > #tempoIcon{
-	background: url(/img/tempo.svg);
+	background: url(../img/tempo.svg);
 	background-size: 34px 34px;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 #controller > .nav > .buttonsControls > .buttons > #infoIcon{
-	background: url(/img/info.svg);
+	background: url(../img/info.svg);
 	background-size: 34px 34px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -450,10 +450,10 @@ $mobile_p_calcG: $mobile_p_heightA + $mobile_p_heightB + $mobile_p_heightC - $mo
 		transform: translateX(-50%);
 		height: 40px;
 		width: 40px;
-		background: url(/img/play_m.svg);
+		background: url(../img/play_m.svg);
 	}
 	#controller > .nav > .player > .icon.pause {
-		background: url(/img/pause_m.svg);
+		background: url(../img/pause_m.svg);
 	}
 
 	#controller > .nav > .filter {
